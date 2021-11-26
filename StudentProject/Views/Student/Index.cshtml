@@ -1,0 +1,54 @@
+﻿@model IEnumerable<StudentProject.Model.Student>
+
+
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class=" btn btn-group btn-outline-success">Create New</a>
+</p>
+
+<table class="table table-bordered table-hover   table-striped" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumSet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumSet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+
+                <td>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.StudentID">Edit</a> |
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.StudentID">Delete</a> |
+                    <a class="btn btn-outline-success" asp-action="Details" asp-route-id="@item.StudentID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
